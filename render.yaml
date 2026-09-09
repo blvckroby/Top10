@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: netflix-it-top10-addon
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 7000
+      - key: CACHE_MINUTES
+        value: 180
+      - key: POSTER_STYLE
+        value: side

@@ -1,0 +1,23 @@
+app = "netflix-it-top10-addon"
+primary_region = "fra"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "7000"
+  CACHE_MINUTES = "180"
+  POSTER_STYLE = "side"
+
+[http_service]
+  internal_port = 7000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
